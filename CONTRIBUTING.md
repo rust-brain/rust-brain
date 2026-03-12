@@ -2,17 +2,15 @@
 > We have enacted a feature freeze for IDE assists to cope with the PR backlog as well as allowing us to prepare for the rowan transition!
 > If you submit a PR that **adds** new ide-assists, chances are very high that we will just close it on this basis alone until we have the capacity to deal with them again.
 
-
 # Contributing to rust-analyzer
 
 Thank you for your interest in contributing to rust-analyzer! There are many ways to contribute
 and we appreciate all of them.
 
 To get a quick overview of the crates and structure of the project take a look at the
-[Contributing](https://rust-analyzer.github.io/book/contributing) section of the manual.
+[Contributing](https://rust-brain.github.io/book/contributing) section of the manual.
 
-If you have any questions please ask them in the [rust-analyzer zulip stream](
-https://rust-lang.zulipchat.com/#narrow/stream/185405-t-compiler.2Frust-analyzer) or if unsure where
+If you have any questions please ask them in the [rust-analyzer zulip stream](https://rust-lang.zulipchat.com/#narrow/stream/185405-t-compiler.2Frust-analyzer) or if unsure where
 to start out when working on a concrete issue drop a comment on the related issue for mentoring
 instructions (general discussions are recommended to happen on zulip though).
 

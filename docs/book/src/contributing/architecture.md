@@ -8,11 +8,11 @@ It goes deeper than what is covered in this document, but will take some time to
 
 See also these implementation-related blog posts:
 
-* <https://rust-analyzer.github.io/blog/2019/11/13/find-usages.html>
-* <https://rust-analyzer.github.io/blog/2020/07/20/three-architectures-for-responsive-ide.html>
-* <https://rust-analyzer.github.io/blog/2020/09/16/challenging-LR-parsing.html>
-* <https://rust-analyzer.github.io/blog/2020/09/28/how-to-make-a-light-bulb.html>
-* <https://rust-analyzer.github.io/blog/2020/10/24/introducing-ungrammar.html>
+- <https://rust-brain.github.io/blog/2019/11/13/find-usages.html>
+- <https://rust-brain.github.io/blog/2020/07/20/three-architectures-for-responsive-ide.html>
+- <https://rust-brain.github.io/blog/2020/09/16/challenging-LR-parsing.html>
+- <https://rust-brain.github.io/blog/2020/09/28/how-to-make-a-light-bulb.html>
+- <https://rust-brain.github.io/blog/2020/10/24/introducing-ungrammar.html>
 
 For older, by now mostly outdated stuff, see the [guide](./guide.md) and [another playlist](https://www.youtube.com/playlist?list=PL85XCvVPmGQho7MZkdW-wtPtuJcFpzycE).
 
@@ -39,7 +39,7 @@ The underlying engine makes sure that model is computed lazily (on-demand) and c
 ## Entry Points
 
 `crates/rust-analyzer/src/bin/main.rs` contains the main function which spawns LSP.
-This is *the* entry point, but it front-loads a lot of complexity, so it's fine to just skim through it.
+This is _the_ entry point, but it front-loads a lot of complexity, so it's fine to just skim through it.
 
 `crates/rust-analyzer/src/handlers/request.rs` implements all LSP requests and is a great place to start if you are already familiar with LSP.
 
@@ -130,8 +130,8 @@ Specifically, assists and refactors require transforming syntax trees, and that 
 **Architecture Invariant:** syntax tree is built for a single file.
 This is to enable parallel parsing of all files.
 
-**Architecture Invariant:**  Syntax trees are by design incomplete and do not enforce well-formedness.
-If an AST method returns an `Option`, it *can* be `None` at runtime, even if this is forbidden by the grammar.
+**Architecture Invariant:** Syntax trees are by design incomplete and do not enforce well-formedness.
+If an AST method returns an `Option`, it _can_ be `None` at runtime, even if this is forbidden by the grammar.
 
 ### `crates/base-db`
 
@@ -141,7 +141,7 @@ The `base-db` crate provides basic infrastructure for interacting with salsa.
 Crucially, it defines most of the "input" queries: facts supplied by the client of the analyzer.
 Reading the docs of the `base_db::input` module should be useful: everything else is strictly derived from those inputs.
 
-**Architecture Invariant:** particularities of the build system are *not* the part of the ground state.
+**Architecture Invariant:** particularities of the build system are _not_ the part of the ground state.
 In particular, `base-db` knows nothing about cargo.
 For example, `cfg` flags are a part of `base_db`, but `feature`s are not.
 A `foo` feature is a Cargo-level concept, which is lowered by Cargo to `--cfg feature=foo` argument on the command line.
@@ -152,7 +152,7 @@ Files are represented with opaque `FileId`, there's no operation to get an `std:
 
 ### `crates/hir-expand`, `crates/hir-def`, `crates/hir_ty`
 
-These crates are the *brain* of rust-analyzer.
+These crates are the _brain_ of rust-analyzer.
 This is the compiler part of the IDE.
 
 `hir-xxx` crates have a strong [ECS](https://en.wikipedia.org/wiki/Entity_component_system) flavor, in that they work with raw ids and directly query the database.
@@ -221,7 +221,7 @@ Internally, `ide` is split across several crates. `ide-assists`, `ide-completion
 The `ide` contains a public API/façade, as well as implementation for a plethora of smaller features.
 
 **Architecture Invariant:** `ide` crate strives to provide a _perfect_ API.
-Although at the moment it has only one consumer, the LSP server, LSP *does not* influence its API design.
+Although at the moment it has only one consumer, the LSP server, LSP _does not_ influence its API design.
 Instead, we keep in mind a hypothetical _ideal_ client -- an IDE tailored specifically for rust, every nook and cranny of which is packed with Rust-specific goodies.
 
 ### `crates/rust-analyzer`
@@ -267,14 +267,14 @@ They are independent from the rest of the code.
 And it also handles the actual parsing and expansion of declarative macro (a-la "Macros By Example" or mbe).
 
 For proc macros, the client-server model are used.
-We start a separate process  (`proc-macro-srv-cli`) which loads and runs the proc-macros for us.
+We start a separate process (`proc-macro-srv-cli`) which loads and runs the proc-macros for us.
 And the client (`proc-macro-api`) provides an interface to talk to that server separately.
 
 And then token trees are passed from client, and the server will load the corresponding dynamic library (which built by `cargo`).
 And due to the fact the api for getting result from proc macro are always unstable in `rustc`,
 we maintain our own copy (and paste) of that part of code to allow us to build the whole thing in stable rust.
 
- **Architecture Invariant:**
+**Architecture Invariant:**
 Bad proc macros may panic or segfault accidentally. So we run it in another process and recover it from fatal error.
 And they may be non-deterministic which conflict how `salsa` works, so special attention is required.
 
@@ -331,9 +331,9 @@ Instead, as much as possible we leverage existing ones.
 
 Examples:
 
-* The `ide` API of rust-analyzer are explicitly unstable, but the LSP interface is stable, and here we just implement a stable API managed by someone else.
-* Rust language and Cargo are stable, and they are the primary inputs to rust-analyzer.
-* The `rowan` library is published to crates.io, but it is deliberately kept under `1.0` and always makes semver-incompatible upgrades
+- The `ide` API of rust-analyzer are explicitly unstable, but the LSP interface is stable, and here we just implement a stable API managed by someone else.
+- Rust language and Cargo are stable, and they are the primary inputs to rust-analyzer.
+- The `rowan` library is published to crates.io, but it is deliberately kept under `1.0` and always makes semver-incompatible upgrades
 
 Another important example is that rust-analyzer isn't run on CI, so, unlike `rustc` and `clippy`, it is actually ok for us to change runtime behavior.
 
@@ -341,13 +341,13 @@ At some point we might consider opening up APIs or allowing crates.io libraries 
 
 Exceptions:
 
-* `rust-project.json` is a de-facto stable format for non-cargo build systems.
+- `rust-project.json` is a de-facto stable format for non-cargo build systems.
   It is probably ok enough, but was definitely stabilized implicitly.
   Lesson for the future: when designing API which could become a stability boundary, don't wait for the first users until you stabilize it.
   By the time you have first users, it is already de-facto stable.
-  And the users will first use the thing, and *then* inform you that now you have users.
+  And the users will first use the thing, and _then_ inform you that now you have users.
   The sad thing is that stuff should be stable before someone uses it for the first time, or it should contain explicit opt-in.
-* We ship some LSP extensions, and we try to keep those somewhat stable.
+- We ship some LSP extensions, and we try to keep those somewhat stable.
   Here, we need to work with a finite set of editor maintainers, so not providing rock-solid guarantees works.
 
 ### Code generation
@@ -358,14 +358,13 @@ Generated code is generally committed to the git repository.
 
 In particular, we generate:
 
-* API for working with syntax trees (`syntax::ast`, the [`ungrammar`](https://github.com/rust-analyzer/ungrammar) crate).
-* Various sections of the manual:
+- API for working with syntax trees (`syntax::ast`, the [`ungrammar`](https://github.com/rust-analyzer/ungrammar) crate).
+- Various sections of the manual:
+  - features
+  - assists
+  - config
 
-    * features
-    * assists
-    * config
-
-* Documentation tests for assists
+- Documentation tests for assists
 
 See the `xtask\src\codegen\assists_doc_tests.rs` module for details.
 
@@ -443,7 +442,6 @@ There's no additional checks in CI, formatting and tidy tests are run with `carg
 
 **Architecture Invariant:** tests do not depend on any kind of external resources, they are perfectly reproducible.
 
-
 ### Performance Testing
 
 TBA, take a look at the `metrics` xtask and `#[test] fn benchmark_xxx()` functions.
@@ -489,7 +487,6 @@ It is enabled with `RA_PROFILE='*>50'` env var (log all (`*`) actions which take
 ```
 
 This is cheap enough to enable in production.
-
 
 Similarly, we save live object counting (`RA_COUNT=1`).
 It is not cheap enough to enable in prod, and this is a bug which should be fixed.

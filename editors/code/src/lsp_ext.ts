@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 /**
- * This file mirrors `crates/rust-analyzer/src/lsp_ext.rs` declarations.
+ * This file mirrors `crates/rust-brain/src/lsp_ext.rs` declarations.
  */
 
 import * as lc from "vscode-languageclient";
 
-// rust-analyzer overrides
+// rust-brain overrides
 
 export const hover = new lc.RequestType<
     HoverParams,
@@ -25,50 +25,50 @@ export type CommandLinkGroup = {
     commands: CommandLink[];
 };
 
-// rust-analyzer extensions
+// rust-brain extensions
 
 export const analyzerStatus = new lc.RequestType<AnalyzerStatusParams, string, void>(
-    "rust-analyzer/analyzerStatus",
+    "rust-brain/analyzerStatus",
 );
-export const cancelFlycheck = new lc.NotificationType0("rust-analyzer/cancelFlycheck");
-export const clearFlycheck = new lc.NotificationType0("rust-analyzer/clearFlycheck");
+export const cancelFlycheck = new lc.NotificationType0("rust-brain/cancelFlycheck");
+export const clearFlycheck = new lc.NotificationType0("rust-brain/clearFlycheck");
 export const expandMacro = new lc.RequestType<ExpandMacroParams, ExpandedMacro | null, void>(
-    "rust-analyzer/expandMacro",
+    "rust-brain/expandMacro",
 );
-export const memoryUsage = new lc.RequestType0<string, void>("rust-analyzer/memoryUsage");
-export const openServerLogs = new lc.NotificationType0("rust-analyzer/openServerLogs");
+export const memoryUsage = new lc.RequestType0<string, void>("rust-brain/memoryUsage");
+export const openServerLogs = new lc.NotificationType0("rust-brain/openServerLogs");
 export const relatedTests = new lc.RequestType<lc.TextDocumentPositionParams, TestInfo[], void>(
-    "rust-analyzer/relatedTests",
+    "rust-brain/relatedTests",
 );
-export const reloadWorkspace = new lc.RequestType0<null, void>("rust-analyzer/reloadWorkspace");
-export const rebuildProcMacros = new lc.RequestType0<null, void>("rust-analyzer/rebuildProcMacros");
+export const reloadWorkspace = new lc.RequestType0<null, void>("rust-brain/reloadWorkspace");
+export const rebuildProcMacros = new lc.RequestType0<null, void>("rust-brain/rebuildProcMacros");
 
 export const runFlycheck = new lc.NotificationType<{
     textDocument: lc.TextDocumentIdentifier | null;
-}>("rust-analyzer/runFlycheck");
+}>("rust-brain/runFlycheck");
 export const viewSyntaxTree = new lc.RequestType<ViewSyntaxTreeParams, string, void>(
-    "rust-analyzer/viewSyntaxTree",
+    "rust-brain/viewSyntaxTree",
 );
 export const viewCrateGraph = new lc.RequestType<ViewCrateGraphParams, string, void>(
-    "rust-analyzer/viewCrateGraph",
+    "rust-brain/viewCrateGraph",
 );
 export const viewFileText = new lc.RequestType<lc.TextDocumentIdentifier, string, void>(
-    "rust-analyzer/viewFileText",
+    "rust-brain/viewFileText",
 );
 export const viewHir = new lc.RequestType<lc.TextDocumentPositionParams, string, void>(
-    "rust-analyzer/viewHir",
+    "rust-brain/viewHir",
 );
 export const viewMir = new lc.RequestType<lc.TextDocumentPositionParams, string, void>(
-    "rust-analyzer/viewMir",
+    "rust-brain/viewMir",
 );
 export const interpretFunction = new lc.RequestType<lc.TextDocumentPositionParams, string, void>(
-    "rust-analyzer/interpretFunction",
+    "rust-brain/interpretFunction",
 );
 export const viewItemTree = new lc.RequestType<ViewItemTreeParams, string, void>(
-    "rust-analyzer/viewItemTree",
+    "rust-brain/viewItemTree",
 );
 export const getFailedObligations = new lc.RequestType<lc.TextDocumentPositionParams, string, void>(
-    "rust-analyzer/getFailedObligations",
+    "rust-brain/getFailedObligations",
 );
 
 export type DiscoverTestParams = { testId?: string | undefined };
@@ -130,7 +130,7 @@ export const fetchDependencyList = new lc.RequestType<
     FetchDependencyListParams,
     FetchDependencyListResult,
     void
->("rust-analyzer/fetchDependencyList");
+>("rust-brain/fetchDependencyList");
 
 export interface FetchDependencyGraphParams {}
 
@@ -146,7 +146,7 @@ export const fetchDependencyGraph = new lc.RequestType<
     FetchDependencyGraphParams,
     FetchDependencyGraphResult,
     void
->("rust-analyzer/fetchDependencyGraph");
+>("rust-brain/fetchDependencyGraph");
 
 export type ExpandMacroParams = {
     textDocument: lc.TextDocumentIdentifier;
@@ -210,7 +210,7 @@ export const viewRecursiveMemoryLayout = new lc.RequestType<
     lc.TextDocumentPositionParams,
     RecursiveMemoryLayout | null,
     void
->("rust-analyzer/viewRecursiveMemoryLayout");
+>("rust-brain/viewRecursiveMemoryLayout");
 
 export type JoinLinesParams = {
     textDocument: lc.TextDocumentIdentifier;
@@ -278,7 +278,7 @@ export type CargoRunnableArgs = {
      * Command to execute instead of `cargo`.
      */
     // This is supplied by the user via config. We could pull this through the client config in the
-    // extension directly, but that would prevent us from honoring the rust-analyzer.toml for it.
+    // extension directly, but that would prevent us from honoring the rust-brain.toml for it.
     overrideCargo?: string;
 } & CommonRunnableArgs;
 

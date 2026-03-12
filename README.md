@@ -17,27 +17,27 @@ rustc and clippy).
 
 Internally, rust-analyzer is structured as a set of libraries for
 analyzing Rust code. See
-[Architecture](https://rust-analyzer.github.io/book/contributing/architecture.html)
+[Architecture](https://rust-brain.github.io/book/contributing/architecture.html)
 in the manual.
 
 ## Quick Start
 
-https://rust-analyzer.github.io/book/installation.html
+https://rust-brain.github.io/book/installation.html
 
 ## Documentation
 
 If you want to **contribute** to rust-analyzer check out the [CONTRIBUTING.md](./CONTRIBUTING.md) or
 if you are just curious about how things work under the hood, see the
-[Contributing](https://rust-analyzer.github.io/book/contributing) section of the manual.
+[Contributing](https://rust-brain.github.io/book/contributing) section of the manual.
 
 If you want to **use** rust-analyzer's language server with your editor of
-choice, check [the manual](https://rust-analyzer.github.io/book/).
+choice, check [the manual](https://rust-brain.github.io/book/).
 It also contains some tips & tricks to help you be more productive when using rust-analyzer.
 
 ## Security and Privacy
 
-See the [security](https://rust-analyzer.github.io/book/security.html) and
-[privacy](https://rust-analyzer.github.io/book/privacy.html) sections of the manual.
+See the [security](https://rust-brain.github.io/book/security.html) and
+[privacy](https://rust-brain.github.io/book/privacy.html) sections of the manual.
 
 ## Communication
 
@@ -51,10 +51,10 @@ https://rust-lang.zulipchat.com/#narrow/stream/185405-t-compiler.2Frust-analyzer
 
 ## Quick Links
 
-* Website: https://rust-analyzer.github.io/
-* Metrics: https://rust-analyzer.github.io/metrics/
-* API docs: https://rust-lang.github.io/rust-analyzer/ide/
-* Changelog: https://rust-analyzer.github.io/thisweek
+- Website: https://rust-brain.github.io/
+- Metrics: https://rust-brain.github.io/metrics/
+- API docs: https://rust-lang.github.io/rust-analyzer/ide/
+- Changelog: https://rust-brain.github.io/thisweek
 
 ## License
 

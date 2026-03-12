@@ -56,7 +56,7 @@
 //!   lot of false errors into an assist.
 //!
 //! See also this post:
-//! <https://rust-analyzer.github.io/blog/2020/09/28/how-to-make-a-light-bulb.html>
+//! <https://rust-brain.github.io/blog/2020/09/28/how-to-make-a-light-bulb.html>
 
 #![cfg_attr(feature = "in-rust-tree", feature(rustc_private))]
 // It's useful to refer to code that is private in doc comments.

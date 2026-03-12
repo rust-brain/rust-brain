@@ -22,7 +22,7 @@ impl flags::Release {
             cmd!(sh, "git push --force").run()?;
         }
 
-        let website_root = project_root().join("../rust-analyzer.github.io");
+        let website_root = project_root().join("../rust-brain.github.io");
         {
             let _dir = sh.push_dir(&website_root);
             cmd!(sh, "git switch src").run()?;

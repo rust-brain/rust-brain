@@ -16,7 +16,7 @@ export interface RustAnalyzerExtensionApi {
 
     // Allows adding a configuration override from another extension.
     // `extensionId` is used to only merge configuration override from present
-    // extensions. `configuration` is map of rust-analyzer-specific setting
+    // extensions. `configuration` is map of rust-brain-specific setting
     // overrides, e.g., `{"cargo.cfgs": ["foo", "bar"]}`.
     addConfiguration(extensionId: string, configuration: Record<string, unknown>): Promise<void>;
 }
@@ -34,9 +34,7 @@ export async function activate(
     // VS Code doesn't show a notification when an extension fails to activate
     // so we do it ourselves.
     const api = await activateServer(ctx).catch((err) => {
-        void vscode.window.showErrorMessage(
-            `Cannot activate rust-analyzer extension: ${err.message}`,
-        );
+        void vscode.window.showErrorMessage(`Cannot activate rust-brain extension: ${err.message}`);
         throw err;
     });
     await setContextValue(RUST_PROJECT_CONTEXT_NAME, true);
@@ -223,7 +221,7 @@ function checkConflictingExtensions() {
     if (vscode.extensions.getExtension("rust-lang.rust")) {
         vscode.window
             .showWarningMessage(
-                `You have both the rust-analyzer (rust-lang.rust-analyzer) and Rust (rust-lang.rust) ` +
+                `You have both the rust-brain (rust-lang.rust-brain) and Rust (rust-lang.rust) ` +
                     "plugins enabled. These are known to conflict and cause various functions of " +
                     "both plugins to not work correctly. You should disable one of them.",
                 "Got it",

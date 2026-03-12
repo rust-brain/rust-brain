@@ -28,26 +28,26 @@ Discussion happens in this Zulip stream:
 
 # Issue Labels
 
-* [good-first-issue](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
+- [good-first-issue](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
   are good issues to get into the project.
-* [E-has-instructions](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3AE-has-instructions)
+- [E-has-instructions](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3AE-has-instructions)
   issues have links to the code in question and tests.
-* [Broken Window](https://github.com/rust-lang/rust-analyzer/issues?q=is:issue+is:open+label:%22Broken+Window%22)
+- [Broken Window](https://github.com/rust-lang/rust-analyzer/issues?q=is:issue+is:open+label:%22Broken+Window%22)
   are issues which are not necessarily critical by themselves, but which should be fixed ASAP regardless, to avoid accumulation of technical debt.
-* [E-easy](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3AE-easy),
+- [E-easy](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3AE-easy),
   [E-medium](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3AE-medium),
   [E-hard](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3AE-hard),
   [E-unknown](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3AE-unknown),
-  labels are *estimates* for how hard would be to write a fix. Each triaged issue should have one of these labels.
-* [S-actionable](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3AS-actionable) and
+  labels are _estimates_ for how hard would be to write a fix. Each triaged issue should have one of these labels.
+- [S-actionable](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3AS-actionable) and
   [S-unactionable](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3AS-unactionable)
   specify if there are concrete steps to resolve or advance an issue. Roughly, actionable issues need only work to be fixed,
   while unactionable ones are blocked either on user feedback (providing a reproducible example), or on larger architectural
   work or decisions. This classification is descriptive, not prescriptive, and might be wrong: Any unactionable issue might have a simple fix that we missed.
   Each triaged issue should have one of these labels.
-* [fun](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3Afun)
+- [fun](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aopen+is%3Aissue+label%3Afun)
   is for cool, but probably hard stuff.
-* [C-Architecture](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aissue%20state%3Aopen%20label%3AC-Architecture)
+- [C-Architecture](https://github.com/rust-lang/rust-analyzer/issues?q=is%3Aissue%20state%3Aopen%20label%3AC-Architecture)
   is for moderate/large scale architecture discussion.
   Also a kind of fun.
   These issues should generally include a link to a Zulip discussion thread.
@@ -91,7 +91,7 @@ For this, it is important to have the following in your `settings.json` file:
 
 ```json
 {
-    "rust-analyzer.server.path": "rust-analyzer"
+  "rust-analyzer.server.path": "rust-analyzer"
 }
 ```
 
@@ -122,11 +122,11 @@ npm run lint
 
 ## How to ...
 
-* ... add an assist? [#7535](https://github.com/rust-lang/rust-analyzer/pull/7535)
-* ... add a new protocol extension? [#4569](https://github.com/rust-lang/rust-analyzer/pull/4569)
-* ... add a new configuration option? [#7451](https://github.com/rust-lang/rust-analyzer/pull/7451)
-* ... add a new completion? [#6964](https://github.com/rust-lang/rust-analyzer/pull/6964)
-* ... allow new syntax in the parser? [#7338](https://github.com/rust-lang/rust-analyzer/pull/7338)
+- ... add an assist? [#7535](https://github.com/rust-lang/rust-analyzer/pull/7535)
+- ... add a new protocol extension? [#4569](https://github.com/rust-lang/rust-analyzer/pull/4569)
+- ... add a new configuration option? [#7451](https://github.com/rust-lang/rust-analyzer/pull/7451)
+- ... add a new completion? [#6964](https://github.com/rust-lang/rust-analyzer/pull/6964)
+- ... allow new syntax in the parser? [#7338](https://github.com/rust-lang/rust-analyzer/pull/7338)
 
 ## Logging
 
@@ -145,13 +145,13 @@ Note that `stdout` is used by LSP messages, so using `println!`—or anything th
 
 To log all communication between the server and the client, there are two choices:
 
-* You can log on the server side, by running something like
+- You can log on the server side, by running something like
 
   ```bash
   env RA_LOG=lsp_server=debug code .
   ```
 
-* You can log on the client side, by the `rust-analyzer: Toggle LSP Logs` command or enabling `"rust-analyzer.trace.server": "verbose"` workspace setting.
+- You can log on the client side, by the `rust-analyzer: Toggle LSP Logs` command or enabling `"rust-analyzer.trace.server": "verbose"` workspace setting.
   These logs are shown in a separate tab named `rust-analyzer LSP Trace` in the output and could be used with LSP inspector.
   Kudos to [@DJMcNab](https://github.com/DJMcNab) for setting this awesome infra up!
 
@@ -159,11 +159,11 @@ Finally there are the logs of the VSCode extension itself which go into the `rus
 
 There are also several VS Code commands which might be of interest:
 
-* `rust-analyzer: Status` shows some memory-usage statistics.
+- `rust-analyzer: Status` shows some memory-usage statistics.
 
-* `rust-analyzer: View Hir` shows the HIR expressions within the function containing the cursor.
+- `rust-analyzer: View Hir` shows the HIR expressions within the function containing the cursor.
 
-* If `rust-analyzer.showSyntaxTree` is enabled in settings, `Rust Syntax Tree: Focus on Rust Syntax Tree View` shows the syntax tree of the current file.
+- If `rust-analyzer.showSyntaxTree` is enabled in settings, `Rust Syntax Tree: Focus on Rust Syntax Tree View` shows the syntax tree of the current file.
 
   You can click on nodes in the rust editor to go to the corresponding syntax node.
 
@@ -219,11 +219,11 @@ Look for `fn benchmark_xxx` tests for a quick way to reproduce performance probl
 
 Release process is handled by `release`, `dist`, `publish-release-notes` and `promote` xtasks, `release` being the main one.
 
-`release` assumes that you have checkouts of `rust-analyzer`, `rust-analyzer.github.io`, and `rust-lang/rust` in the same directory:
+`release` assumes that you have checkouts of `rust-analyzer`, `rust-brain.github.io`, and `rust-lang/rust` in the same directory:
 
 ```bash
 ./rust-analyzer
-./rust-analyzer.github.io
+./rust-brain.github.io
 ./rust-rust-analyzer  # Note the name!
 ```
 
@@ -238,14 +238,14 @@ Release steps:
 
 1. Set the `GITHUB_TOKEN` environment variable.
 2. Inside rust-analyzer, run `cargo xtask release`. This will:
-   * checkout the `release` branch
-   * reset it to `upstream/nightly`
-   * push it to `upstream`. This triggers GitHub Actions which:
-     * runs `cargo xtask dist` to package binaries and VS Code extension
-     * makes a GitHub release
-     * publishes the VS Code extension to the marketplace
-   * call the GitHub API for PR details
-   * create a new changelog in `rust-analyzer.github.io`
+   - checkout the `release` branch
+   - reset it to `upstream/nightly`
+   - push it to `upstream`. This triggers GitHub Actions which:
+     - runs `cargo xtask dist` to package binaries and VS Code extension
+     - makes a GitHub release
+     - publishes the VS Code extension to the marketplace
+   - call the GitHub API for PR details
+   - create a new changelog in `rust-brain.github.io`
 3. While the release is in progress, fill in the changelog.
 4. Commit & push the changelog.
 5. Run `cargo xtask publish-release-notes <CHANGELOG>` -- this will convert the changelog entry in AsciiDoc to Markdown and update the body of GitHub Releases entry.
@@ -268,16 +268,17 @@ Note: we tag releases by dates, releasing a patch release on the same day should
 
 There are two sets of people with extra permissions:
 
-* The [rust-lang](https://github.com/rust-lang) team [t-rust-analyzer](https://github.com/rust-lang/team/blob/master/teams/rust-analyzer.toml).
+- The [rust-lang](https://github.com/rust-lang) team [t-rust-analyzer](https://github.com/rust-lang/team/blob/master/teams/rust-analyzer.toml).
   This team has write access to the repository and merge queue permissions (note the repo itself is managed by infra admins).
   It's ok to self-approve if you think you know what you are doing!
   Feel free to request a review or assign any PR to a reviewer with the relevant expertise to bring the work to their attention.
   Don't feel pressured to review assigned PRs though.
   If you don't feel like reviewing for whatever reason, someone else will pick the review up (but please speak up if you don't feel like it)!
-* The [rust-lang](https://github.com/rust-lang) team [t-rust-analyzer-contributors](https://github.com/rust-lang/team/blob/master/teams/rust-analyzer-contributors.toml).
+- The [rust-lang](https://github.com/rust-lang) team [t-rust-analyzer-contributors](https://github.com/rust-lang/team/blob/master/teams/rust-analyzer-contributors.toml).
   This team has general triaging permissions allowing to label, close and re-open issues.
 
 ## Synchronizing subtree changes
+
 `rust-analyzer` is a [josh](https://josh-project.github.io/josh/intro.html) subtree of the [rust-lang/rust](https://github.com/rust-lang/rust)
 repository. We use the [rustc-josh-sync](https://github.com/rust-lang/josh-sync) tool to perform synchronization between these two
 repositories. You can find documentation of the tool [here](https://github.com/rust-lang/josh-sync).
@@ -295,25 +296,28 @@ changes from rust-analyzer to rust-lang/rust) are performed from this repository
 Usually we first perform a pull, wait for it to be merged, and then perform a push.
 
 ### Performing a pull
-1) Checkout a new branch that will be used to create a PR against rust-analyzer
-2) Run the pull command
-    ```
-    rustc-josh-sync pull
-    ```
-3) Push the branch to your fork of `rust-analyzer` and create a PR
-  - If you have the `gh` CLI installed, `rustc-josh-sync` can create the PR for you.
+
+1. Checkout a new branch that will be used to create a PR against rust-analyzer
+2. Run the pull command
+   ```
+   rustc-josh-sync pull
+   ```
+3. Push the branch to your fork of `rust-analyzer` and create a PR
+
+- If you have the `gh` CLI installed, `rustc-josh-sync` can create the PR for you.
 
 ### Performing a push
 
 Wait for the previous pull to be merged.
 
-1) Switch to `master` and pull
-2) Run the push command to create a branch named `<branch-name>` in a `rustc` fork under the `<gh-username>` account
-    ```
-    rustc-josh-sync push <branch-name> <gh-username>
-    ```
+1. Switch to `master` and pull
+2. Run the push command to create a branch named `<branch-name>` in a `rustc` fork under the `<gh-username>` account
+   ```
+   rustc-josh-sync push <branch-name> <gh-username>
+   ```
+
    - The push will ask you to download a checkout of the `rust-lang/rust` repository.
    - If you get prompted for a password, see [this](https://github.com/rust-lang/josh-sync?tab=readme-ov-file#git-peculiarities).
-3) Create a PR from `<branch-name>` into `rust-lang/rust`
+3. Create a PR from `<branch-name>` into `rust-lang/rust`
 
 > Besides the `rust` checkout, the Josh cache (stored under `~/.cache/rustc-josh`) will contain a bare clone of `rust-lang/rust`. This currently takes several GBs.

@@ -735,7 +735,7 @@ config_data! {
         imports_granularity_group: ImportGranularityDef = ImportGranularityDef::Crate,
 
         /// Group inserted imports by the [following
-        /// order](https://rust-analyzer.github.io/book/features.html#auto-import). Groups are
+        /// order](https://rust-brain.github.io/book/features.html#auto-import). Groups are
         /// separated by newlines.
         imports_group_enable: bool = true,
 

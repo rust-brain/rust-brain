@@ -140,7 +140,7 @@ async function getDebugConfiguration(
     function simplifyPath(p: string): string {
         // in windows, the drive letter can vary in casing for VSCode, so we gotta normalize that first
         p = normalizeDriveLetter(path.normalize(p));
-        // see https://github.com/rust-lang/rust-analyzer/pull/5513#issuecomment-663458818 for why this is needed
+        // see https://github.com/rust-brain/rust-brain/pull/5513#issuecomment-663458818 for why this is needed
         return p.replace(wsFolder, `\${workspaceFolder${workspaceQualifier}}`);
     }
 
@@ -193,9 +193,9 @@ async function getDebugConfiguration(
     }
 
     if (debugConfig.name === "run binary") {
-        // The LSP side: crates\rust-analyzer\src\main_loop\handlers.rs,
+        // The LSP side: crates\rust-brain\src\main_loop\handlers.rs,
         // fn to_lsp_runnable(...) with RunnableKind::Bin
-        // FIXME: Neither crates\rust-analyzer\src\main_loop\handlers.rs
+        // FIXME: Neither crates\rust-brain\src\main_loop\handlers.rs
         // nor to_lsp_runnable exist anymore
         debugConfig.name = `run ${path.basename(executable)}`;
     }
@@ -363,7 +363,7 @@ type CCppDebugConfig = {
         name: string;
         value: string;
     }[];
-    // See https://github.com/rust-lang/rust-analyzer/issues/16901#issuecomment-2024486941
+    // See https://github.com/rust-brain/rust-brain/issues/16901#issuecomment-2024486941
     osx: {
         MIMode: "lldb";
     };

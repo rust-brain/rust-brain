@@ -4,7 +4,7 @@
 //! ambiguous, non LL, non LR, etc.
 //!
 //! See this
-//! [introductory post](https://rust-analyzer.github.io/blog/2020/10/24/introducing-ungrammar.html)
+//! [introductory post](https://rust-brain.github.io/blog/2020/10/24/introducing-ungrammar.html)
 //! for details.
 
 #![deny(missing_debug_implementations)]

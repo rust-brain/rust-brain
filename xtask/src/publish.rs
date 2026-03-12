@@ -67,7 +67,7 @@ fn create_original_changelog_url(file_name: &str) -> String {
     if let Some(stripped) = stem.strip_suffix(".adoc") {
         stem = stripped;
     }
-    format!("https://rust-analyzer.github.io/thisweek/{year}/{month}/{day}/{stem}.html")
+    format!("https://rust-brain.github.io/thisweek/{year}/{month}/{day}/{stem}.html")
 }
 
 fn update_release(sh: &Shell, tag_name: &str, release_notes: &str) -> anyhow::Result<()> {
@@ -115,7 +115,7 @@ mod tests {
     fn original_changelog_url_creation() {
         let input = "2019-07-24-changelog-0.adoc";
         let actual = create_original_changelog_url(input);
-        let expected = "https://rust-analyzer.github.io/thisweek/2019/07/24/changelog-0.html";
+        let expected = "https://rust-brain.github.io/thisweek/2019/07/24/changelog-0.html";
         assert_eq!(actual, expected);
     }
 }

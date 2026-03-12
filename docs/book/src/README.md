@@ -13,7 +13,7 @@ rustc and clippy).
 
 Internally, rust-analyzer is structured as a set of libraries for
 analyzing Rust code. See
-[Architecture](https://rust-analyzer.github.io/book/contributing/architecture.html)
+[Architecture](https://rust-brain.github.io/book/contributing/architecture.html)
 for more details.
 
 To improve this document, send a pull request:
